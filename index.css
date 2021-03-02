@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+:root {
+  --main-background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --main-font: "Barlow Semi Condensed", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  /*overflow: hidden;*/ /* delete it */
+}
+
+html {
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  background: var(--main-background);
+}
+
+body,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.table {
+  background-image: url("../images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 6.1rem;
+  width: 70rem;
+  height: 43.2rem; /* -12.2 */
+  position: relative;
+  transition: 0.3s;
+}
+.table--no-transition {
+  /* I don't use it */
+  transition: 0s !important;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.rules-button {
+  text-transform: uppercase;
+  border: 0.2rem solid hsl(217, 16%, 45%);
+  font-family: var(--main-font);
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  padding: 1rem 3.8rem;
+  border-radius: 1rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 3rem;
+  margin-bottom: 2.9rem;
+  /*margin-bottom: 3rem;*/
+}
+@media (max-width: 376px) {
+  .table {
+    margin: 0;
+    width: 37.5rem;
+    height: 50rem;
+    background-size: 25rem;
+    background-position-y: 8rem;
+  }
+  .footer {
+    justify-content: center;
+  }
+  .rules-button {
+    margin: 0;
+    margin-top: 2.5rem;
+  }
+}

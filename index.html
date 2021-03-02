@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock, Paper, Scissors</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <game-scoreboard></game-scoreboard>
+      <main class="main">
+        <div class="table"></div>
+      </main>
+      <div class="footer">
+        <!--<rules-button></rules-button>-->
+        <button class="rules-button">RULES</button>
+      </div>
+      <rules-window></rules-window>
+    </div>
 
-</head>
-<body>
-
-</body>
+    <script type="module" src="components/scoreboard.js"></script>
+    <!--<script type="module" src="components/rules-button.js"></script>-->
+    <script type="module" src="components/rules-window.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
 </html>
