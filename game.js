@@ -4,8 +4,8 @@ import "./components/blank-chip.js";
 import "./components/result-block.js";
 
 class Game {
-  constructor(score = 12) {
-    this.score = score;
+  constructor() {
+    this.score = null;
     this.table = null;
 
     this.chips = [];
@@ -21,7 +21,9 @@ class Game {
     this.resultBlock = null;
   }
 
-  init() {
+  init(score = 12) {
+    this.score = score;
+
     this.table = document.querySelector(".table");
     for (let i = 0; i < this.variants.length; i++) {
       const chip = document.createElement("gaming-chip");
@@ -161,16 +163,23 @@ class Game {
     this.resultBlock.remove();
     this.resultBlock = null;
 
-    this.table.classList.add("table--no-transition");
-    if (window.innerWidth > 375) {
+    if (window.innerWidth > 376) {
       this.table.style.width = "70rem";
     }
-    this.table.classList.remove("table--no-transition"); // <---- Doesn't work
+    
     this.table.style.backgroundImage = "url(../images/bg-triangle.svg)";
+    this.table.classList.add("table--no-transition");
+    setTimeout(() => {
+      this.table.classList.remove("table--no-transition");
+    }, 300);
 
-    console.log("PLAYER CHIP:", this.playerChip);
-
-    this.init();
+    const localScore = parseInt(localStorage.getItem("score"));
+    console.log(localScore);
+    if (localScore < 0) {
+      this.init();
+    } else {
+      this.init(localScore);
+    }
   }
 
   updateScore(result = null) {

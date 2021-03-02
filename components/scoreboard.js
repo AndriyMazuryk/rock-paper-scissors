@@ -18,6 +18,7 @@ class Scoreboard extends HTMLElement {
   updateScore(newScore) {
     this.score = this.root.querySelector(".score__number");
     this.score.innerHTML = newScore;
+    localStorage.setItem('score', ""+newScore);
   }
 }
 
