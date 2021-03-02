@@ -48,7 +48,7 @@ template.innerHTML = `
     font-weight: 700;
   }
 
-  @media (max-width: 376px) {
+  @media (max-width: 1000px) {
     .scoreboard {
       margin-top: 3.3rem;
       width: 31rem;

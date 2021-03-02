@@ -25,7 +25,7 @@ template.innerHTML = `
     /*margin-right:*/
   }
 
-  @media (max-width: 376px) {
+  @media (max-width: 1000px) {
     .label {
       top: 30rem;
       font-size: 1.2rem;

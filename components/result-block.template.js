@@ -39,7 +39,7 @@ template.innerHTML = `
     cursor: pointer;
   }
 
-  @media (max-width: 376px) {
+  @media (max-width: 1000px) {
     .result {
       padding-top: 35rem;
     }

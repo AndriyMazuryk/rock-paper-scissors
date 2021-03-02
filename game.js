@@ -89,7 +89,7 @@ class Game {
   step3() {
     setTimeout(() => {
       let result = "none";
-      if (window.innerWidth > 376) {
+      if (window.innerWidth > 1000) {
         this.table.style.width = "99rem";
       }
 
@@ -163,7 +163,7 @@ class Game {
     this.resultBlock.remove();
     this.resultBlock = null;
 
-    if (window.innerWidth > 376) {
+    if (window.innerWidth > 1000) {
       this.table.style.width = "70rem";
     }
     

@@ -136,7 +136,7 @@ template.innerHTML = `
   }
 
 
-  @media (max-width: 376px) {
+  @media (max-width: 1000px) {
     .chip {
       width: 13rem;
       height: 13rem;

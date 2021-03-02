@@ -10,7 +10,7 @@ template.innerHTML = `
     top: 14rem;
     left: 41.2rem;
   }
-  @media (max-width: 376px) {
+  @media (max-width: 1000px) {
     .blank-chip {
       width: 11rem;
       height: 11rem;

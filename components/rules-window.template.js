@@ -48,7 +48,7 @@ template.innerHTML = `
     margin-left: 2.4rem;*/
   }
   */
-  @media (max-width: 376px) {
+  @media (max-width: 1000px) {
     .rules-window {
       border-radius: 0;
       /*position: static;
