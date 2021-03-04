@@ -16,7 +16,15 @@ template.innerHTML = `
     margin-right: 3rem;
     margin-bottom: 3rem;
   }
+  @media (max-width: 1000px) {
+    .rules-button {
+      margin: 0;
+      margin-top: 2.2rem;
+      margin-bottom: 3rem;
+    }
+  }
 </style>
+<button class="rules-button">RULES</button>
 `;
 
 export default template;
