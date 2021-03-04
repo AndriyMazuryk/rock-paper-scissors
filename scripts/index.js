@@ -1,6 +1,6 @@
 import Game from "./game.js";
 
-const rulesButton = document.querySelector("rules-button");
+const rulesButton = document.querySelector(".rules-button");
 const rulesWindow = document.querySelector("rules-window");
 rulesButton.addEventListener("click", () =>
   rulesWindow.dispatchEvent(new CustomEvent("show"))
