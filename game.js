@@ -1,7 +1,8 @@
 import "./components/gaming-chip.js";
-import "./components/game-label.js";
 import "./components/blank-chip.js";
 import "./components/result-block.js";
+
+import Label from "./scripts/label.js";
 
 class Game {
   constructor() {
@@ -54,13 +55,11 @@ class Game {
 
     this.chips = buffer;
 
-    this.leftLabel = document.createElement("game-label");
-    this.leftLabel.create("you picked", "left");
-    this.table.appendChild(this.leftLabel);
+    this.leftLabel = new Label("you picked", "left");
+    this.table.appendChild(this.leftLabel.element);
 
-    this.rightLabel = document.createElement("game-label");
-    this.rightLabel.create("the house picked", "right");
-    this.table.appendChild(this.rightLabel);
+    this.rightLabel = new Label("the house picked", "right");
+    this.table.appendChild(this.rightLabel.element);
 
     this.blankChip = document.createElement("blank-chip");
     this.table.appendChild(this.blankChip);
@@ -151,12 +150,12 @@ class Game {
     this.computerChip.remove();
     this.computerChip = null;
 
-    this.table.removeChild(this.leftLabel);
-    this.leftLabel.remove();
+    this.table.removeChild(this.leftLabel.element);
+    this.leftLabel.element.remove();
     this.leftLabel = null;
 
-    this.table.removeChild(this.rightLabel);
-    this.rightLabel.remove();
+    this.table.removeChild(this.rightLabel.element);
+    this.rightLabel.element.remove();
     this.rightLabel = null;
 
     this.table.removeChild(this.resultBlock);
