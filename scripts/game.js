@@ -1,4 +1,3 @@
-import "../components/blank-chip.js";
 import "../components/result-block.js";
 
 import Label from "../components/label.js";
@@ -46,7 +45,7 @@ class Game {
 
     this.playerChip.pick();
 
-    // clear unchecked chips
+    // remove unpicked chips
     const buffer = [];
     this.chips.forEach((chip) => {
       if (chip.element !== this.playerChip.element) {
@@ -65,7 +64,8 @@ class Game {
     this.rightLabel = new Label("the house picked", "right");
     this.table.appendChild(this.rightLabel.element);
 
-    this.blankChip = document.createElement("blank-chip");
+    this.blankChip = document.createElement("div");
+    this.blankChip.classList.add("blank-chip");
     this.table.appendChild(this.blankChip);
 
     this.step2();

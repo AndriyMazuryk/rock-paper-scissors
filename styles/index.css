@@ -97,7 +97,15 @@ p {
 .table--expand {
   width: 99rem;
 }
-
+.blank-chip {
+  background: #17223e;
+  border-radius: 50%;
+  width: 22.5rem;
+  height: 22.5rem;
+  position: absolute;
+  top: 14rem;
+  left: 41.2rem;
+}
 .footer {
   width: 100%;
   display: flex;
@@ -193,6 +201,12 @@ p {
     height: 50rem;
     background-size: 20rem;
     background-position-y: 15rem;
+  }
+  .blank-chip {
+    width: 11rem;
+    height: 11rem;
+    top: 11.5rem;
+    left: 22rem;
   }
   .footer {
     justify-content: center;
