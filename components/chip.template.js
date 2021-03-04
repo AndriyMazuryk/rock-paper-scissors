@@ -152,21 +152,21 @@ template.innerHTML = `
       box-shadow: inset 0rem 0.5rem 0rem #b8bdd3;
     }
     #paper {
-      top: 4rem;
+      top: 10rem;
       left: 3rem;
     }
     .paper:hover:after {
       box-shadow: inset 0rem -0.5rem 0rem #2945c0;
     }
     #scissors {
-      top: 4rem;
+      top: 10rem;
       left: 21rem;
     }
     .scissors:hover:after {
       box-shadow: inset 0rem -0.5rem 0rem #c76c1d;
     } 
     #rock {
-      top: 19rem;
+      top: 25rem;
       left: 12rem;
     }
     .rock:hover:after {

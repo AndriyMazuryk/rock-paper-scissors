@@ -8,25 +8,25 @@ class RulesWindow extends HTMLElement {
   }
 
   connectedCallback() {
-    this.root
-      .querySelector(".rules-window__close-button")
-      .addEventListener("click", () => this.hideWindow());
+    const closeButton = this.root.querySelector(".rules-window__close-button");
+    closeButton.addEventListener("click", () => this.hideWindow());
     this.addEventListener("show", () => this.showWindow());
   }
 
   disconnectedCallback() {
-    this.root
-      .querySelector(".rules-window__close-button")
-      .removeEventListener("click", () => this.hideWindow());
+    const closeButton = this.root.querySelector(".rules-window__close-button");
+    closeButton.removeEventListener("click", () => this.hideWindow());
     this.removeEventListener("show", () => this.showWindow());
   }
 
   hideWindow() {
-    this.root.querySelector(".rules-window").style.display = "none";
+    const rulesWindow = this.root.querySelector(".rules-window");
+    rulesWindow.classList.remove("rules-window--show");
   }
 
   showWindow() {
-    this.root.querySelector(".rules-window").style.display = "flex";
+    const rulesWindow = this.root.querySelector(".rules-window");
+    rulesWindow.classList.add("rules-window--show");
   }
 }
 

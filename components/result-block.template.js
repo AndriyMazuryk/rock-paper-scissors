@@ -41,7 +41,7 @@ template.innerHTML = `
 
   @media (max-width: 1000px) {
     .result {
-      padding-top: 35rem;
+      padding-top: 34rem;
     }
   }
 </style>

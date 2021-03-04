@@ -27,14 +27,14 @@ template.innerHTML = `
 
   @media (max-width: 1000px) {
     .label {
-      top: 30rem;
-      font-size: 1.2rem;
+      top: 25rem;
+      font-size: 1.3rem;
     }
     .label--left {
       left: 5rem;
     }
     .label--right {
-      right: 3rem;
+      right: 2rem;
     }
   }
 </style>

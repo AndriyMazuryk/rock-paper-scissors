@@ -50,7 +50,7 @@ template.innerHTML = `
 
   @media (max-width: 1000px) {
     .scoreboard {
-      margin-top: 3.3rem;
+      margin-top: 3rem;
       width: 31rem;
       height: 10rem;
       border-radius: 0.6rem;

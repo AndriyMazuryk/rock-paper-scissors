@@ -7,9 +7,6 @@ template.innerHTML = `
     position: absolute;
     z-index: 2;
     border-radius: 0.7rem;
-    /*top: 17.7rem;
-    left: 48.2rem;*/
-    /*top: 50%;*/
     top: calc(50% - 20.5rem);
     left: calc(50% - 20rem);
     width: 40rem;
@@ -21,10 +18,13 @@ template.innerHTML = `
     justify-content: space-between;
     align-items: center;
   }
+  .rules-window--show {
+    display: flex;
+  }
   .rules-window__header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   .rules-window__title {
     margin: 0;
@@ -36,7 +36,10 @@ template.innerHTML = `
     letter-spacing: 0.2rem;
   }
   .rules-window__close-button {
-    margin-top: 0.2rem;
+    position: absolute;
+    top: 3.2rem;
+    right: 2.5rem;
+    /*margin-top: 0.2rem;*/
     /*margin-left: 0.2rem;*/
     border: none;
     background: transparent;
@@ -44,8 +47,8 @@ template.innerHTML = `
   }
   /*
   .rules-window__image {
-    /*margin-top: 4.5rem;
-    margin-left: 2.4rem;*/
+    margin-top: 4.5rem;
+    margin-left: 2.4rem;
   }
   */
   @media (max-width: 1000px) {
@@ -54,12 +57,30 @@ template.innerHTML = `
       /*position: static;
       width: 100%;
       height: 100%;*/
-      top: 0rem;
-      left: 0rem;
-      /*bottom:0rem;
-      right: 0rem;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      height: 100%;*/
+      height: 100%;
+      justify-content: flex-start;
+    }
+    .rules-window__header {
+      justify-content: center;
+      margin-top: 6.5rem;
+    }
+    .rules-window__title {
+      margin-bottom: 10.5rem;
+    }
+    .rules-window__close-button {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
     .rules-window__close-button img {
       display: none;
