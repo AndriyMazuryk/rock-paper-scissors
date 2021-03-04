@@ -1,11 +1,9 @@
-import "../components/result-block.js";
-
 import Chip from "../components/chip.js";
 
 class Game {
   constructor() {
     this.score = null;
-    this.table = null;
+    this.table = document.querySelector(".table");
 
     this.chips = [];
 
@@ -17,23 +15,23 @@ class Game {
     this.leftLabel = null;
     this.rightLabel = null;
     this.blankChip = null;
-    this.resultBlock = null;
+    this.resultBlock = document.querySelector(".result-block");
   }
 
-  init(score = 12) {
+  start(score = 12) {
     this.score = score;
 
-    this.table = document.querySelector(".table");
+    // create chips
     for (let i = 0; i < this.variants.length; i++) {
       const chip = new Chip("player", this.variants[i]);
-      chip.element.addEventListener("click", (e) => this.step1(e.target));
+      chip.element.addEventListener("click", (e) => this.pick(e.target));
       this.table.appendChild(chip.element);
       this.chips.push(chip);
     }
     this.updateScore();
   }
 
-  step1(playerChoice) {
+  pick(playerChoice) {
     this.table.style.backgroundImage = "none";
 
     for (let i = 0; i < this.chips.length; i++) {
@@ -54,9 +52,9 @@ class Game {
         buffer.push(chip);
       }
     });
-
     this.chips = buffer;
 
+    // draw labels and a slot for computer's chip
     this.leftLabel = document.createElement("p");
     this.leftLabel.classList.add("label", "label--left");
     this.leftLabel.innerText = "you picked";
@@ -71,10 +69,10 @@ class Game {
     this.blankChip.classList.add("blank-chip");
     this.table.appendChild(this.blankChip);
 
-    this.step2();
+    this.calculate();
   }
 
-  step2() {
+  calculate() {
     setTimeout(() => {
       const computerChoice = this.variants[
         Math.floor(Math.random() * this.variants.length)
@@ -87,65 +85,53 @@ class Game {
       this.blankChip.remove();
       this.blankChip = null;
 
-      this.step3();
+      setTimeout(() => {
+        let result = "none";
+        if (window.innerWidth > 1000) {
+          this.table.classList.add("table--expand");
+        }
+
+        const playerChoice = this.playerChip.getVariant();
+        const computerChoice = this.computerChip.getVariant();
+        if (playerChoice === computerChoice) {
+          console.log("It's a tie!");
+          result = "tie";
+        } else if (playerChoice === "rock") {
+          if (computerChoice === "scissors") {
+            console.log("Rock smashes scissors! You win!");
+            result = "win";
+          } else {
+            console.log("Paper covers rock! You lose!");
+            result = "lose";
+          }
+        } else if (playerChoice === "paper") {
+          if (computerChoice === "rock") {
+            console.log("Paper covers rock! You win!");
+            result = "win";
+          } else {
+            console.log("Scissors cuts paper! You lose!");
+            result = "lose";
+          }
+        } else if (playerChoice === "scissors") {
+          if (computerChoice === "paper") {
+            console.log("Scissors cuts paper! You win!");
+            result = "win";
+          } else {
+            console.log("Rock smashes scissors! You lose!");
+            result = "lose";
+          }
+        }
+
+        this.updateScore(result);
+
+        setTimeout(() => {
+          this.resultBlock.classList.add("result-block--show");
+        }, 500);
+      }, 500);
     }, 1000);
   }
 
-  step3() {
-    setTimeout(() => {
-      let result = "none";
-      if (window.innerWidth > 1000) {
-        this.table.classList.add("table--expand");
-      }
-
-      const playerChoice = this.playerChip.getVariant();
-      const computerChoice = this.computerChip.getVariant();
-      if (playerChoice === computerChoice) {
-        console.log("It's a tie!");
-        result = "tie";
-      } else if (playerChoice === "rock") {
-        if (computerChoice === "scissors") {
-          console.log("Rock smashes scissors! You win!");
-          result = "win";
-        } else {
-          console.log("Paper covers rock! You lose!");
-          result = "lose";
-        }
-      } else if (playerChoice === "paper") {
-        if (computerChoice === "rock") {
-          console.log("Paper covers rock! You win!");
-          result = "win";
-        } else {
-          console.log("Scissors cuts paper! You lose!");
-          result = "lose";
-        }
-      } else if (playerChoice === "scissors") {
-        if (computerChoice === "paper") {
-          console.log("Scissors cuts paper! You win!");
-          result = "win";
-        } else {
-          console.log("Rock smashes scissors! You lose!");
-          result = "lose";
-        }
-      }
-      this.updateScore(result);
-
-      this.step4(result);
-    }, 500);
-  }
-
-  step4(result) {
-    setTimeout(() => {
-      this.resultBlock = document.createElement("result-block");
-      this.resultBlock.create(result);
-      this.resultBlock.addEventListener("restart-game", () => {
-        this.clear();
-      });
-      this.table.appendChild(this.resultBlock);
-    }, 500);
-  }
-
-  clear() {
+  restart() {
     this.chips = [];
 
     this.table.removeChild(this.playerChip.element);
@@ -164,9 +150,7 @@ class Game {
     this.rightLabel.remove();
     this.rightLabel = null;
 
-    this.table.removeChild(this.resultBlock);
-    this.resultBlock.remove();
-    this.resultBlock = null;
+    this.resultBlock.classList.remove("result-block--show");
 
     if (this.table.classList.contains("table--expand")) {
       this.table.classList.remove("table--expand");
@@ -180,19 +164,24 @@ class Game {
 
     const localScore = parseInt(localStorage.getItem("score"));
     if (localScore < 0) {
-      this.init();
+      this.start();
     } else {
-      this.init(localScore);
+      this.start(localScore);
     }
   }
 
   updateScore(result = null) {
+    const resultTitle = document.querySelector(".result-block__title");
     if (result === "win") {
       this.score++;
+      resultTitle.innerHTML = "YOU WIN";
       this.playerChip.winner();
     } else if (result === "lose") {
       this.score--;
+      resultTitle.innerHTML = "YOU LOSE";
       this.computerChip.winner();
+    } else {
+      resultTitle.innerHTML = "TIE";
     }
     const score = document.querySelector(".score__number");
     score.innerHTML = this.score;
