@@ -1,5 +1,4 @@
 @import "./fonts.css";
-@import "./components/label.css";
 @import "./components/chip.css";
 
 :root {
@@ -96,6 +95,25 @@ p {
 }
 .table--expand {
   width: 99rem;
+}
+.label {
+  text-transform: uppercase;
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.3rem;
+  color: #fff;
+  margin: 0;
+  top: 1rem;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+}
+.label--left {
+  left: 8.8rem;
+}
+.label--right {
+  right: 5.9rem;
 }
 .blank-chip {
   background: #17223e;
@@ -201,6 +219,16 @@ p {
     height: 50rem;
     background-size: 20rem;
     background-position-y: 15rem;
+  }
+  .label {
+    top: 25rem;
+    font-size: 1.3rem;
+  }
+  .label--left {
+    left: 5rem;
+  }
+  .label--right {
+    right: 2rem;
   }
   .blank-chip {
     width: 11rem;
