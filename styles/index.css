@@ -1,5 +1,6 @@
 @import "./fonts.css";
 @import "./components/label.css";
+@import "./components/chip.css";
 
 :root {
   --main-background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));

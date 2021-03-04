@@ -27,7 +27,7 @@ class Label {
         } else {
           throw new Error("Invalid position!");
         }
-      } catch(e) {
+      } catch (e) {
         console.error("Error:", e);
       }
     }

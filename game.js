@@ -1,8 +1,8 @@
-import "./components/gaming-chip.js";
 import "./components/blank-chip.js";
 import "./components/result-block.js";
 
 import Label from "./scripts/label.js";
+import Chip from "./scripts/chip.js";
 
 class Game {
   constructor() {
@@ -27,10 +27,9 @@ class Game {
 
     this.table = document.querySelector(".table");
     for (let i = 0; i < this.variants.length; i++) {
-      const chip = document.createElement("gaming-chip");
-      chip.create("player", this.variants[i]);
-      chip.addEventListener("clicked", (e) => this.step1(e.target));
-      this.table.appendChild(chip);
+      const chip = new Chip("player", this.variants[i]);
+      chip.element.addEventListener("click", (e) => this.step1(e.target));
+      this.table.appendChild(chip.element);
       this.chips.push(chip);
     }
     this.updateScore();
@@ -39,15 +38,20 @@ class Game {
   step1(playerChoice) {
     this.table.style.backgroundImage = "none";
 
-    this.playerChip = playerChoice;
+    for (let i = 0; i < this.chips.length; i++) {
+      if (this.chips[i].element == playerChoice) {
+        this.playerChip = this.chips[i];
+      }
+    }
 
-    this.playerChip.dispatchEvent(new CustomEvent("checked"));
+    this.playerChip.pick();
 
+    // clear unchecked chips
     const buffer = [];
     this.chips.forEach((chip) => {
-      if (chip !== this.playerChip) {
-        this.table.removeChild(chip);
-        chip.remove();
+      if (chip.element !== this.playerChip.element) {
+        this.table.removeChild(chip.element);
+        chip.element.remove();
       } else {
         buffer.push(chip);
       }
@@ -73,9 +77,8 @@ class Game {
         Math.floor(Math.random() * this.variants.length)
       ];
 
-      this.computerChip = document.createElement("gaming-chip");
-      this.computerChip.create("computer", computerChoice);
-      this.table.appendChild(this.computerChip);
+      this.computerChip = new Chip("computer", computerChoice);
+      this.table.appendChild(this.computerChip.element);
 
       this.table.removeChild(this.blankChip);
       this.blankChip.remove();
@@ -142,12 +145,12 @@ class Game {
   clear() {
     this.chips = [];
 
-    this.table.removeChild(this.playerChip);
-    this.playerChip.remove();
+    this.table.removeChild(this.playerChip.element);
+    this.playerChip.element.remove();
     this.playerChip = null;
 
-    this.table.removeChild(this.computerChip);
-    this.computerChip.remove();
+    this.table.removeChild(this.computerChip.element);
+    this.computerChip.element.remove();
     this.computerChip = null;
 
     this.table.removeChild(this.leftLabel.element);
