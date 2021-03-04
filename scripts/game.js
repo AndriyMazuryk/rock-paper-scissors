@@ -168,7 +168,7 @@ class Game {
     if (this.table.classList.contains("table--expand")) {
       this.table.classList.remove("table--expand");
     }
-    
+
     this.table.style.backgroundImage = "url(../images/bg-triangle.svg)";
     this.table.classList.add("table--no-transition");
     setTimeout(() => {
@@ -176,7 +176,6 @@ class Game {
     }, 300);
 
     const localScore = parseInt(localStorage.getItem("score"));
-    console.log(localScore);
     if (localScore < 0) {
       this.init();
     } else {
@@ -185,27 +184,16 @@ class Game {
   }
 
   updateScore(result = null) {
-    let newScore;
-    switch (result) {
-      case "win":
-        newScore = {
-          detail: ++this.score,
-        };
-        this.playerChip.winner();
-        break;
-      case "lose":
-        newScore = {
-          detail: --this.score,
-        };
-        this.computerChip.winner();
-        break;
-      default:
-        newScore = {
-          detail: this.score,
-        };
+    if (result === "win") {
+      this.score++;
+      this.playerChip.winner();
+    } else if (result === "lose") {
+      this.score--;
+      this.computerChip.winner();
     }
-    const scoreboard = document.querySelector("game-scoreboard");
-    scoreboard.dispatchEvent(new CustomEvent("update-score", newScore));
+    const score = document.querySelector(".score__number");
+    score.innerHTML = this.score;
+    localStorage.setItem("score", "" + this.score);
   }
 }
 
