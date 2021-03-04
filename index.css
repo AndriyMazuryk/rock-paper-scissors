@@ -7,7 +7,6 @@
 
 * {
   box-sizing: border-box;
-  /*overflow: hidden;*/ /* delete it */
 }
 
 html {
@@ -40,14 +39,13 @@ p {
   background-image: url("../images/bg-triangle.svg");
   background-repeat: no-repeat;
   background-position: center;
-  margin-top: 6.1rem;
+  margin-top: 6rem;
   width: 70rem;
-  height: 43.2rem; /* -12.2 */
+  height: 43.2rem;
   position: relative;
   transition: 0.3s;
 }
 .table--no-transition {
-  /* I don't use it */
   transition: 0s !important;
 }
 
@@ -69,8 +67,7 @@ p {
   color: #fff;
   cursor: pointer;
   margin-right: 3rem;
-  margin-bottom: 2.9rem;
-  /*margin-bottom: 3rem;*/
+  margin-bottom: 3rem;
 }
 @media (max-width: 1000px) {
   .table {
@@ -86,5 +83,13 @@ p {
   .rules-button {
     margin: 0;
     margin-top: 2.2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (min-height: 769px) {
+  .footer {
+    position: absolute;
+    bottom: 0;
   }
 }

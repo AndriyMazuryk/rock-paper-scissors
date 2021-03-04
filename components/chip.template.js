@@ -56,7 +56,6 @@ template.innerHTML = `
   }
 
   .winner {
-    /*box-shadow: 0 0 0 5rem #2b3858, 0 0 0 12rem #263554, 0 0 0 20rem #213250;*/
     box-shadow: 0 0 0 5rem rgba(82,85,91,0.3), 0 0 0 12rem rgba(82,85,91,0.2), 0 0 0 20rem rgba(82,85,91,0.1);
   }
 
@@ -79,10 +78,7 @@ template.innerHTML = `
 
   #computer {
     transition: 0.3s;
-    /*right: 1rem !important;*/
-
     top: 10.2rem !important;
-    /*left: 37.5rem !important;*/
     right: 2.4rem !important;
     width: 30rem;
     height: 30rem;

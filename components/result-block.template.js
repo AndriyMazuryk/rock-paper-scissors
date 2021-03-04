@@ -3,9 +3,6 @@ template.innerHTML = `
 <style>
   .result {
     box-sizing: border-box;
-    /*position: absolute;
-    top: 16.9rem;
-    left: 38.3rem;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +10,6 @@ template.innerHTML = `
     padding-top: 16.9rem;
     position: relative;
     z-index: 1;
-    /*width: 22.3rem;*/
   }
   .result__title {
     margin: 0;
@@ -30,7 +26,6 @@ template.innerHTML = `
     font-family: var(--main-font);
     font-size: 1.6rem;
     letter-spacing: 0.2rem;
-    /*width: 100%;*/
     border: 0.1rem solid #fff;
     border-radius: 0.5rem;
   }

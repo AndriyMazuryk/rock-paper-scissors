@@ -13,7 +13,6 @@ template.innerHTML = `
     height: 41rem;
     padding: 3rem 2.5rem;
     display: none;
-    /*display: flex;*/
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -39,24 +38,13 @@ template.innerHTML = `
     position: absolute;
     top: 3.2rem;
     right: 2.5rem;
-    /*margin-top: 0.2rem;*/
-    /*margin-left: 0.2rem;*/
     border: none;
     background: transparent;
     cursor: pointer;
   }
-  /*
-  .rules-window__image {
-    margin-top: 4.5rem;
-    margin-left: 2.4rem;
-  }
-  */
   @media (max-width: 1000px) {
     .rules-window {
       border-radius: 0;
-      /*position: static;
-      width: 100%;
-      height: 100%;*/
       top: 0;
       right: 0;
       bottom: 0;
