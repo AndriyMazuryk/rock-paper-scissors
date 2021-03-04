@@ -48,6 +48,9 @@ p {
 .table--no-transition {
   transition: 0s !important;
 }
+.table--expand {
+  width: 99rem;
+}
 
 .footer {
   width: 100%;

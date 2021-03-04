@@ -1,6 +1,6 @@
-import template from "./chip.template.js";
+import template from "./gaming-chip.template.js";
 
-class Chip extends HTMLElement {
+class GamingChip extends HTMLElement {
   constructor() {
     super();
 
@@ -77,4 +77,4 @@ class Chip extends HTMLElement {
   }
 }
 
-window.customElements.define("gaming-chip", Chip);
+window.customElements.define("gaming-chip", GamingChip);

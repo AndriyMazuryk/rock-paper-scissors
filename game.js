@@ -1,5 +1,5 @@
-import "./components/chip.js";
-import "./components/label.js";
+import "./components/gaming-chip.js";
+import "./components/game-label.js";
 import "./components/blank-chip.js";
 import "./components/result-block.js";
 
@@ -90,7 +90,7 @@ class Game {
     setTimeout(() => {
       let result = "none";
       if (window.innerWidth > 1000) {
-        this.table.style.width = "99rem";
+        this.table.classList.add("table--expand");
       }
 
       const playerChoice = this.playerChip.getVariant();
@@ -163,8 +163,8 @@ class Game {
     this.resultBlock.remove();
     this.resultBlock = null;
 
-    if (window.innerWidth > 1000) {
-      this.table.style.width = "70rem";
+    if (this.table.classList.contains("table--expand")) {
+      this.table.classList.remove("table--expand");
     }
     
     this.table.style.backgroundImage = "url(../images/bg-triangle.svg)";

@@ -1,6 +1,6 @@
-import template from "./label.template.js";
+import template from "./game-label.template.js";
 
-class Label extends HTMLElement {
+class GameLabel extends HTMLElement {
   constructor() {
     super();
     this.root = this.attachShadow({ mode: "open" });
@@ -27,4 +27,4 @@ class Label extends HTMLElement {
   }
 }
 
-window.customElements.define("game-label", Label);
+window.customElements.define("game-label", GameLabel);

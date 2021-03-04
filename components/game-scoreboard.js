@@ -1,6 +1,6 @@
-import template from "./scoreboard.template.js";
+import template from "./game-scoreboard.template.js";
 
-class Scoreboard extends HTMLElement {
+class GameScoreboard extends HTMLElement {
   constructor() {
     super();
     this.root = this.attachShadow({ mode: "open" });
@@ -22,4 +22,4 @@ class Scoreboard extends HTMLElement {
   }
 }
 
-window.customElements.define("game-scoreboard", Scoreboard);
+window.customElements.define("game-scoreboard", GameScoreboard);
