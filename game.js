@@ -1,8 +1,8 @@
 import "./components/blank-chip.js";
 import "./components/result-block.js";
 
-import Label from "./scripts/label.js";
-import Chip from "./scripts/chip.js";
+import Label from "./components/label.js";
+import Chip from "./components/chip.js";
 
 class Game {
   constructor() {
